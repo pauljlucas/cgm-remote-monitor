@@ -4,11 +4,9 @@ var _ = require('lodash');
 var express = require('express');
 var compression = require('compression');
 var bodyParser = require('body-parser');
-var wwwhisper = require('connect-wwwhisper');
 
 function create (env, ctx) {
   var app = express();
-  app.use(wwwhisper());
   var appInfo = env.name + ' ' + env.version;
   app.set('title', appInfo);
   app.enable('trust proxy'); // Allows req.secure test on heroku https connections.
